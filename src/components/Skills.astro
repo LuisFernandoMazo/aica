@@ -1,0 +1,93 @@
+---
+import React from "../components/icons/React.astro";
+import TypeScript from "../components/icons/TypeScript.astro";
+import Node from "../components/icons/Node.astro";
+import Redux from "../components/icons/Redux.astro";
+import Html5 from "../components/icons/Html.astro";
+import Css3 from "../components/icons/Css3.astro";
+import JavaScript from "../components/icons/JavaScript.astro";
+import Figma from "../components/icons/Figma.astro";
+import Tailwind from "../components/icons/Tailwind.astro";
+import Git from "../components/icons/Git.astro";
+import Sql from "../components/icons/Sql.astro";
+
+const skills = [
+  { icon: React, name: "React", color: "text-[#61DAFB]" },
+  { icon: TypeScript, name: "TypeScript", color: "text-[#3178C6]" },
+  { icon: Node, name: "Node.js", color: "text-[#339933]" },
+  { icon: Redux, name: "Redux", color: "text-[#764ABC]" },
+  { icon: Html5, name: "HTML5", color: "text-[#E34F26]" },
+  { icon: Css3, name: "CSS3", color: "text-[#1572B6]" },
+  { icon: JavaScript, name: "JavaScript", color: "text-[#F7DF1E]" },
+  { icon: Figma, name: "Figma", color: "text-[#A259FF]" },
+  { icon: Tailwind, name: "Tailwind", color: "text-[#38BDF8]" },
+  { icon: Git, name: "Git", color: "text-[#F14E32]" },
+  { icon: Sql, name: "SQL", color: "text-[#00758F]" },
+];
+
+const duplicatedSkills = [...skills, ...skills];
+---
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .skill-carousel {
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    );
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    );
+  }
+
+  .skill-track {
+    animation: scroll 60s linear infinite;
+    width: max-content;
+  }
+
+  @media (hover: hover) {
+    .skill-track:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .skill-carousel {
+      mask: none;
+      -webkit-mask: none;
+    }
+  }
+</style>
+
+<section class="py-12 px-4 relative overflow-hidden">
+  <div class="skill-carousel w-full">
+    <div class="skill-track flex gap-8">
+      {
+        duplicatedSkills.map(({ icon: Icon, name, color }) => (
+          <div class="skill-card flex flex-col items-center p-6 bg-white/5  dark:bg-gray-800/30 rounded-xl backdrop-blur-sm shadow-xl border border-black/40 dark:border dark:border-white/40 dark:border-gray-700 transition-all duration-3000 hover:transform hover:-translate-y-1 hover:shadow-xl min-w-[150px]">
+            {" "}
+            <Icon class={`w-14 h-14 mb-2 ${color}`} />
+            <span class="text-sm font-semibold text-gray-700 dark:text-gray-200 pt-4">
+              {name}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
