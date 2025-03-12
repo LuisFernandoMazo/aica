@@ -23,10 +23,11 @@ import SocialPill from "@/components/SocialPill.astro";
     </a>
   </div>
   <h1
+    id="animated-text"
     class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
   >
-    Hola, Soy Luis Fernando
   </h1>
+
   <p
     class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
   >
@@ -48,3 +49,88 @@ import SocialPill from "@/components/SocialPill.astro";
     </SocialPill>
   </nav>
 </div>
+
+<style>
+  .typing-animation {
+    display: inline-block;
+    font-family: "Courier New", Courier, monospace;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid #000; /* Simula el cursor */
+    animation:
+      typing 3s steps(30) 1s forwards,
+      blink-caret 0.75s step-end infinite;
+  }
+
+  /* Animación de parpadeo del cursor */
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+
+  /* Animación de desvanecimiento al aparecer el texto */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Animación de desvanecimiento al desaparecer el texto */
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+</style>
+<script>
+  const texts = ["Bienvenido", "Mi nombre es Luis Fernando"];
+  let i = 0;
+  let element = document.getElementById("animated-text");
+
+  function typeText(text: string) {
+    let currentText = "";
+    let currentIndex = 0;
+    let typingSpeed = 150; // Velocidad de escritura (ms por letra)
+    let delayBetweenTexts = 2000; // Tiempo de espera entre textos (ms)
+    let fadeOutSpeed = 500; // Tiempo de desvanecimiento (ms)
+
+    // Escribir el texto
+    let interval = setInterval(function () {
+      currentText += text[currentIndex];
+      if (element) {
+        element.innerHTML = `<span class="typing-animation">${currentText}</span>`;
+      }
+      currentIndex++;
+
+      // Cuando se ha terminado de escribir el texto, hacemos una pausa
+      if (currentIndex === text.length) {
+        clearInterval(interval);
+        setTimeout(() => {
+          // Desvanecemos el texto antes de borrar
+          if (element) {
+            element.innerHTML = `<span class="typing-animation" style="animation: ${fadeOutSpeed / 1000}s fade-out forwards">${currentText}</span>`;
+          }
+
+          // Esperamos un poco para que el texto se desvanezca antes de cambiar
+          setTimeout(() => {
+            if (element) {
+              element.innerHTML = "";
+            }
+            // Cambiamos al siguiente texto
+            i = (i + 1) % texts.length;
+            typeText(texts[i]);
+          }, fadeOutSpeed); // Espera el tiempo de desvanecimiento
+        }, delayBetweenTexts); // Espera un tiempo después de escribir el texto
+      }
+    }, typingSpeed);
+  }
+
+  typeText(texts[i]);
+</script>
