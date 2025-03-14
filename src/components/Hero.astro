@@ -4,6 +4,7 @@ import Badge from "@/components/Badge.astro";
 import LinkedInIcon from "@/components/icons/LinkedIn.astro";
 import MailIcon from "@/components/icons/Mail.astro";
 import SocialPill from "@/components/SocialPill.astro";
+import Download from "./icons/Download.astro";
 ---
 
 <div class="max-w-2xl">
@@ -37,22 +38,25 @@ import SocialPill from "@/components/SocialPill.astro";
     web únicas.
   </p>
   <nav class="flex flex-wrap gap-4 mt-8">
-    <SocialPill href="mailto:miduga@gmail.com">
-      <MailIcon class="size-4" />
-      Contáctame
+    <SocialPill href="./cv.pdf">
+      <Download class="size-4" />
+      Descargar CV
     </SocialPill>
+
     <SocialPill
       href="https://www.linkedin.com/in/luis-fernando-mazo-ca%C3%B1as-9b1392218/"
     >
       <LinkedInIcon class="size-4" />
       LinkedIn
     </SocialPill>
+    <SocialPill href="mailto:miduga@gmail.com">
+      <MailIcon class="size-4" />
+      Contáctame
+    </SocialPill>
   </nav>
 </div>
 
 <script>
-  import { log } from "node_modules/astro/dist/core/logger/core";
-
   const texts = ["Bienvenid@", "Soy Luis Fernando"];
   let i = 0;
   let element = document.getElementById("animated-text");
@@ -60,12 +64,9 @@ import SocialPill from "@/components/SocialPill.astro";
   function typeText(text: string) {
     let currentText = "";
     let currentIndex = 0;
-    let typingSpeed = 150; // Velocidad de escritura (ms por letra)
-    let delayBetweenTexts = 2000; // Tiempo de espera entre textos (ms)
-    let fadeOutSpeed = 500; // Tiempo de desvanecimiento (ms)
-    console.log(i);
-
-    // Escribir el texto
+    let typingSpeed = 150;
+    let delayBetweenTexts = 2000;
+    let fadeOutSpeed = 500;
 
     let interval = setInterval(function () {
       currentText += text[currentIndex];
@@ -74,21 +75,18 @@ import SocialPill from "@/components/SocialPill.astro";
       }
       currentIndex++;
 
-      // Cuando se ha terminado de escribir el texto, hacemos una pausa
       if (currentIndex === text.length) {
         clearInterval(interval);
         setTimeout(() => {
-          // Desvanecemos el texto antes de borrar
           if (element) {
             element.innerHTML = `<span class="typing-animation" style="animation: ${fadeOutSpeed / 1000}s fade-out forwards">${currentText}</span>`;
           }
 
-          // Esperamos un poco para que el texto se desvanezca antes de cambiar
           setTimeout(() => {
             i = (i + 1) % texts.length;
             typeText(texts[i]);
-          }, fadeOutSpeed); // Espera el tiempo de desvanecimiento
-        }, delayBetweenTexts); // Espera un tiempo después de escribir el texto
+          }, fadeOutSpeed);
+        }, delayBetweenTexts);
       }
     }, typingSpeed);
   }
