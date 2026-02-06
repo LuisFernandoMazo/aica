@@ -8,60 +8,80 @@ import Download from "./icons/Download.astro";
 ---
 
 <div class="max-w-2xl">
-  <div class="flex gap-4 mb-4">
-    <img
-      class="rounded-full shadow-lg size-20"
-      src="/fotoPerfilPortfolio.jpg"
-      alt={personalImageAlt}
-    />
+  <div class="scroll-reveal flex flex-col md:flex-row gap-4 mb-4 md:items-center">
+    <div class="flex md:items-center justify-center">
+      <div class="relative">
+        <span class="absolute -inset-1 rounded-full hero-glow pointer-events-none"></span>
+        <img
+          class="rounded-full shadow-lg size-40 flex-shrink-0 mt-4 hero-float"
+          src="/cathe3.jpeg"
+          alt={personalImageAlt}
+        />
+      </div>
+    </div>
+
     <a
-      href="https://www.linkedin.com/in/luis-fernando-mazo-ca%C3%B1as-9b1392218/"
+      href=""
       target="_blank"
       rel="noopener"
-      class="flex items-center transition md:justify-center md:hover:scale-105"
+      class="flex md:justify-center md:hover:scale-105"
     >
-      <Badge>Disponible para trabajar</Badge>
+      <Badge>Gestión del Riesgo Psicosocial y Salud Mental Laboral</Badge>
     </a>
   </div>
   <h1
     id="animated-text"
-    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+    class="scroll-reveal text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
   >
   </h1>
 
   <p
-    class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+    class="scroll-reveal mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
   >
-    <strong>Desarrollador Frontend con más de 2 años de experiencia </strong> de
-    Manizales, Colombia co. Especializado en el desarrollo de interfaces web modernas,
-    responsivas y accesibles. Enfocado en la creación de productos de alto rendimiento
-    utilizando React, TypeScript, HTML5, CSS3, y JavaScript ES6+. Familiarizado con
-    herramientas de control de versiones, metodologías ágiles y prácticas de optimización,
-    escalabilidad y accesibilidad (WCAG). Experiencia trabajando en colaboración
-    con equipos multidisciplinarios de diseño y backend, consumiendo APIs RESTful
-    y aplicando buenas prácticas de arquitectura, rendimiento y pruebas.
+    Con enfoque especializado en la identificación, evaluación, intervención y
+    seguimiento del <strong>Riesgo Psicosocial</strong> en el contexto laboral, conforme
+    a la Resolución 2646 de 2008 y lineamientos del SG-SST. Cuento con experiencia
+    en acompañamiento organizacional, trabajo en campo y capacitación individual
+    y grupal, orientada a la comprensión profunda de los <strong>
+      intralaborales, extralaborales e individuales</strong
+    > que impactan la salud mental, el clima laboral y el desempeño de los trabajadores.
+    Mi ejercicio profesional se caracteriza por una lectura sensible de las dinámicas
+    humanas dentro de las organizaciones, integrando el componente técnico con una
+    mirada empática y ética. Trabajo desde un <strong
+      >enfoque preventivo, educativo y humano</strong
+    >, facilitando espacios de sensibilización, orientación psicosocial y
+    fortalecimiento de habilidades de afrontamiento, autocuidado y
+    corresponsabilidad en la gestión del riesgo. Me especializo en traducir la
+    normativa en acciones prácticas, claras y aplicables, favoreciendo procesos
+    sostenibles que priorizan el bienestar emocional, la dignidad del trabajador
+    y la humanización del trabajo
   </p>
-  <nav class="flex flex-wrap gap-4 mt-8">
-    <SocialPill href="./cv.pdf">
+  <nav class="scroll-reveal flex flex-wrap gap-4 mt-8">
+    {
+      /* <SocialPill href="./cv.pdf">
       <Download class="size-4" />
       Descargar CV
-    </SocialPill>
+    </SocialPill>*/
+    }
 
     <SocialPill
-      href="https://www.linkedin.com/in/luis-fernando-mazo-ca%C3%B1as-9b1392218/"
+      href="https://www.instagram.com/ps.catherinegc?igsh=MXA5MHB3Z3loOHZxbw=="
     >
-      <LinkedInIcon class="size-4" />
-      LinkedIn
+      Instagram
     </SocialPill>
-    <SocialPill href="mailto:lfdo.mazoc@gmail.com">
+    <SocialPill href="mailto:catherinegaviriacamargo@gmail.com">
       <MailIcon class="size-4" />
       Contáctame
     </SocialPill>
+    <SocialPill href="https://wa.me/573233941668"> WhatsApp </SocialPill>
   </nav>
 </div>
 
 <script>
-  const texts = ["Bienvenid@", "Soy Luis Fernando"];
+  const texts = [
+    "Soy Catherine",
+    "Psicóloga Especialista en Gerencia de Riesgos Laborales y Seguridad y Salud en el Trabajo ",
+  ];
   let i = 0;
   let element = document.getElementById("animated-text");
 
@@ -134,6 +154,49 @@ import Download from "./icons/Download.astro";
     }
     to {
       opacity: 0;
+    }
+  }
+
+  /* Hero float + glow */
+  .hero-float {
+    animation: float 6s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
+  .hero-glow {
+    background: radial-gradient(circle at center, rgba(111,79,179,0.35), transparent 40%);
+    filter: blur(18px);
+    opacity: 0.6;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform-origin: center;
+    animation: pulse 3.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.06); }
+    100% { opacity: 0.5; transform: scale(1); }
+  }
+
+  /* Dark mode tweak */
+  :root.dark .hero-glow,
+  .dark .hero-glow {
+    background: radial-gradient(circle at center, rgba(127,90,198,0.28), transparent 40%);
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-float,
+    .hero-glow,
+    .scroll-reveal {
+      animation: none !important;
+      transition: none !important;
     }
   }
 </style>

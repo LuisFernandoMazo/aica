@@ -61,115 +61,194 @@ const TAGS = {
 };
 const PROJECTS = [
   {
-    title: "Oficina Móvil para Asesores ",
+    title: "Estrés laboral y Síndrome de Burnout ",
     description: [
-      "Desarrollé una aplicación web con React.js y TypeScript que permite a los asesores de clientes operar desde cualquier ubicación con una oficina digital. ",
-      "Implementé Redux para la gestión eficiente del estado y Tailwind CSS para un diseño responsivo y moderno. ",
-      "Integré APIs para la validación de identidad, carga de documentos y firma digital.",
-      "Optimizaciones en el rendimiento de la aplicación mejoraron la experiencia de usuario y redujeron el tiempo de procesamiento de solicitudes.",
+      "Estrés funcional vs estrés crónico ",
+      "Señales de alarma ",
+      "Prevención del agotamiento emocional",
+      
     ],
     link: "",
     github: "",
     image: "",
-    tags: [TAGS.REACT, TAGS.REDUX, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+    tags: [],
   },
   {
-    title: "Dashboard de Métricas",
+    title: "Carga mental y carga emocional",
     description: [
-      "Creé un sistema de visualización de datos con React.js y ECharts para monitorear indicadores de servicio. ",
-      "Automatización del proceso de generación de reportes con Python y Flask, eliminando la dependencia de Google Sheets y Looker Studio. ",
-      "Implementé una interfaz intuitiva que permite a los usuarios explorar y filtrar datos en tiempo real.",
+      "Sobrecarga cognitiva",
+      "Exigencias emocionales del rol",
+      "Fatiga mental y decisional",
+       "Estrategias de regulación emocional"
+      
     ],
-
     link: "",
+    github: "",
     image: "",
-    tags: [
-      TAGS.REACT,
-      TAGS.REDUX,
-      TAGS.TYPESCRIPT,
-      TAGS.CSS3,
-      TAGS.MONGO,
-      TAGS.ECHARTS,
-      TAGS.PYTHON,
+    tags: [],
+  },
+    {
+    title: "Liderazgo",
+    description: [
+      "Estilos de liderazgo y salud mental",
+      "Liderazgo consciente y humanizado",
+      "El líder como regulador emocional del equipo",
+      
     ],
+    link: "",
+    github: "",
+    image: "",
+    tags: [],
+  },
+     {
+    title: "Comunicación Asertiva y Manejo de Conflictos",
+    description: [
+      "Conflicto sano vs conflicto patológico",
+      "Comunicación empática",
+      "Manejo emocional en situaciones difíciles",
+      
+    ],
+    link: "",
+    github: "",
+    image: "",
+    tags: [],
+  },
+     {
+    title: "Comité de Convivencia Laboral (COCOLA)",
+    description: [
+      "Funciones y responsabilidades del comité",
+      "Prevención del acoso laboral",
+      "Ruta de atención y manejo de quejas",
+      "Escucha activa, confidencialidad y contención emocional"
+      
+    ],
+    link: "",
+    github: "",
+    image: "",
+    tags: [],
+  },
+    {
+    title: "Equidad de Género en el Entorno Laboral",
+    description: [
+      "Enfoque de género y salud mental",
+      "Violencias visibles e invisibles",
+      "Impacto psicológico de la inequidad",
+      "Construcción de entornos laborales seguros"
+      
+    ],
+    link: "",
+    github: "",
+    image: "",
+    tags: [],
+  },
+      {
+    title: "Prevención del Consumo de SPA",
+    description: [
+      "Consumo, abuso y dependencia",
+      "Factores psicosociales asociados",
+      "Detección temprana",
+      "Abordaje preventivo y no punitivo"
+      
+    ],
+    link: "",
+    github: "",
+    image: "",
+    tags: [],
+  },
+     {
+    title: "Primeros Auxilios Psicológicos (PAP)",
+    description: [
+      "Atención inmediata en crisis",
+      "Contención emocional",
+      "Escucha activa y validación",
+      "Criterios de remisión"
+      
+    ],
+    link: "",
+    github: "",
+    image: "",
+    tags: [],
   },
   {
-    title: "Sistema de Gestión de Embudos de Conversión ",
+    title: "Psicología de la Emergencia",
     description: [
-      "Desarrollé una plataforma en React.js y Redux para la visualización y análisis de flujos de conversión en procesos comerciales.",
-      "Integré datos en tiempo real desde APIs RESTful, permitiendo a los usuarios tomar decisiones basadas en métricas actualizadas. ",
-      "Diseñé gráficos interactivos para mejorar la comprensión de los datos y su impacto en la toma de decisiones.",
+      "Reacciones normales ante eventos críticos",
+      "Atención a trabajadores y víctimas",
+      "Prevención de secuelas psicológicas",
+      "Prevención del trauma psicólogico"     
     ],
-
     link: "",
+    github: "",
     image: "",
-    tags: [TAGS.REACT, TAGS.REDUX, TAGS.TYPESCRIPT, TAGS.CSS3],
+    tags: [],
+  },
+  {
+    title: "Autocuidado y Salud Mental en el Trabajo",
+    description: [
+      "Autocuidado individual y organizacional",
+      "Cuerpo, mente y emoción",
+    ],
+    link: "",
+    github: "",
+    image: "",
+    tags: [],
+  },
+   {
+    title: "Sentido del Trabajo y Motivación (Enfoque Jungiano)",
+    description: [
+
+    ],
+    link: "",
+    github: "",
+    image: "",
+    tags: [],
+  },
+  {
+    title: "Inteligencia Emocional Aplicada al Trabajo",
+    description: [
+
+    ],
+    link: "",
+    github: "",
+    image: "",
+    tags: [],
   },
 ];
 ---
+<section class="relative max-w-5xl mx-auto px-4 md:px-8 py-12">
 
-<div class="flex flex-col gap-y-16">
-  {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
-      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-        {image && (
-          <div class="w-full md:w-1/2">
-            <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-              <img
-                alt="Recién llegado vs 5 años en Nueva Zelanda"
-                class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-                loading="lazy"
-                src={image}
-              />
-            </div>
-          </div>
-        )}
+  <!-- Línea vertical -->
+  <span class="absolute left-6 top-0 bottom-0 w-px bg-white/30"></span>
 
-        <div class="w-full md:w-1/2 md:max-w-lg">
-          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+  <div class="flex flex-col gap-y-12">
+
+    {PROJECTS.map(({ title, description }) => (
+      <article class="scroll-reveal relative pl-14">
+
+        <!-- Bola alineada al título -->
+        <span
+          class="absolute left-2 md:left-[-8px] top-1/2 -translate-x-1/2 -translate-y-1/2
+                 size-[10px] rounded-full bg-yellow-400"
+        ></span>
+
+        <!-- Card -->
+        <div class="card-tilt bg-[#35245A] rounded-xl p-6 shadow-lg">
+
+          <!-- Título -->
+          <h3 class="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
             {title}
           </h3>
-          <div class="flex flex-wrap mt-2">
-            <p class="text-xs">Tecnologías utilizadas:</p>
-            <ul class="mb-2 ml-5 flex flex-row flex-wrap  gap-2">
-              {tags.map((tag) => (
-                <li class="">
-                  <span
-                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-                  >
-                    <tag.icon class="size-4" />
-                    {tag.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
 
-            <div class="mt-2 text-gray-700 dark:text-gray-400 ">
-              {Array.isArray(description)
-                ? description.map((descrip) => (
-                    <ul class="list-disc">
-                      <li>{descrip}</li>
-                    </ul>
-                  ))
-                : { description }}
-            </div>
-            <footer class="flex items-end justify-start mt-4 gap-x-4">
-              {github && (
-                <LinkButton href={github}>
-                  <GitHub class="size-6" />
-                  Code
-                </LinkButton>
-              )}
-              {link && (
-                <LinkButton href={link}>
-                  <Link class="size-4" />
-                  Preview
-                </LinkButton>
-              )}
-            </footer>
-          </div>
+          <ul class="list-disc pl-5 space-y-1 text-white/80">
+            {description.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+
         </div>
       </article>
-    ))
-  }
-</div>
+    ))}
+
+  </div>
+</section>
+

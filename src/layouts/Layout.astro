@@ -19,20 +19,15 @@ const { description, title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
   </head>
 
   <body class="relative text-black dark:text-white">
-    <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-    >
-    </div>
     <Header />
+    
     <slot />
     <Footer />
     <style is:global>
@@ -46,6 +41,7 @@ const { description, title } = Astro.props;
       }
 
       body {
+        background: linear-gradient(135deg,#6e618b 0%,#7b43b3 50%,#6f4fb3 100%);
         color: rgba(17, 17, 17, 0.9);
         display: flex;
         flex-direction: column;
@@ -61,6 +57,7 @@ const { description, title } = Astro.props;
 
       @media (prefers-color-scheme: dark) {
         body {
+          background: linear-gradient(135deg,#563592 0%,#3d3255 100%);
           color: rgba(255, 255, 255, 0.9);
         }
       }
@@ -110,6 +107,75 @@ const { description, title } = Astro.props;
           }
         }
       }
+
+      /* Scroll Reveal Animation */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .scroll-reveal.reveal {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* 3D Card Tilt Effect */
+      .card-tilt {
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease-out;
+      }
+
+      .card-tilt:hover {
+        transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry));
+      }
     </style>
+
+    <script>
+      document.addEventListener("astro:page-load", () => {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("reveal");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // Observar todos los elementos con clase scroll-reveal
+        document.querySelectorAll(".scroll-reveal").forEach((el) => {
+          observer.observe(el);
+        });
+
+        // 3D Card Tilt Effect
+        const cardTilts = document.querySelectorAll(".card-tilt");
+        cardTilts.forEach((card) => {
+          card.addEventListener("mousemove", (e: Event) => {
+            const mouseEvent = e as MouseEvent;
+            const rect = (card as HTMLElement).getBoundingClientRect();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const mouseX = mouseEvent.clientX - rect.left;
+            const mouseY = mouseEvent.clientY - rect.top;
+
+            const rotateX = -(mouseY - centerY) / 10;
+            const rotateY = (mouseX - centerX) / 10;
+
+            (card as HTMLElement).style.setProperty("--rx", rotateX + "deg");
+            (card as HTMLElement).style.setProperty("--ry", rotateY + "deg");
+          });
+
+          card.addEventListener("mouseleave", () => {
+            (card as HTMLElement).style.setProperty("--rx", "0deg");
+            (card as HTMLElement).style.setProperty("--ry", "0deg");
+          });
+        });
+      });
+    </script>
   </body>
 </html>

@@ -12,11 +12,12 @@ import Hero from "@/components/Hero.astro";
 import TitleSection from "@/components/TitleSection.astro";
 import Skills from "@/components/Skills.astro";
 import SkillsComputer from "@/components/icons/SkillsComputer.astro";
+import Fortalezas from "@/components/Fortalezas.astro";
 ---
 
 <Layout
-  title="Porfolio de Luis Fernando Mazo C - Desarrollador y Programador Web con 2 años de experiencia"
-  description="Contrata a Luis para crear tu aplicación web. Desarrollador Web. Especializado en crear aplicaciones únicas."
+  title="Porfolio de Catherine Gaviria Camargo"
+  description="Contrata a cathe para servicios de gestión del riesgo psicosocial y salud mental laboral"
 >
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
@@ -24,36 +25,30 @@ import SkillsComputer from "@/components/icons/SkillsComputer.astro";
     </SectionContainer>
   </main>
   <div class="space-y-24">
-    <SectionContainer id="experiencia">
+    <SectionContainer id="portafoiolio-servicios">
       <TitleSection>
+        <div></div>
+
         <Briefcase class="size-8" />
-        Experiencia laboral
+        Portafolio de servicios
       </TitleSection>
       <Experience />
     </SectionContainer>
 
-    <SectionContainer id="proyectos">
-      <TitleSection>
-        <CodeIcon class="size-7" />
-        Proyectos Destacados
+    <SectionContainer id="capacitaciones-riesgo-psicosocial">
+      <TitleSection> 
+        <div></div>
+        <div></div>
+        CAPACITACIONES EN RIESGO PSICOSOCIAL
       </TitleSection>
       <Projects />
     </SectionContainer>
 
-    <SectionContainer id="habilidades">
-      <TitleSection>
-        <SkillsComputer class="size-7" />
-        Habilidades
-      </TitleSection>
-      <Skills />
-    </SectionContainer>
+    <SectionContainer id="fortalezas-del-servicio">
+      <TitleSection> 
 
-    <SectionContainer id="sobre-mi">
-      <TitleSection>
-        <ProfileCheck class="size-8" />
-        Sobre mí
       </TitleSection>
-      <AboutMe />
+      <Fortalezas />
     </SectionContainer>
   </div>
 </Layout>

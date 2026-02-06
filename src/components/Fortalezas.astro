@@ -1,0 +1,108 @@
+---
+import GitHub from "./icons/GitHub.astro";
+import NextJS from "./icons/NextJS.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import React from "./icons/React.astro";
+import Redux from "./icons/Redux.astro";
+import TypeScript from "./icons/TypeScript.astro";
+import Css3 from "./icons/Css3.astro";
+import Link from "./icons/Link.astro";
+import MongoDB from "./icons/Mongo.astro";
+import Echarts from "./icons/Echarts.astro";
+import Python from "./icons/Python.astro";
+import LinkButton from "./LinkButton.astro";
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  REACT: {
+    name: "React.js",
+    class: "bg-[#003159] text-white",
+    icon: React,
+  },
+  REDUX: {
+    name: "Redux",
+    class: "bg-[#3c024f] text-white",
+    icon: Redux,
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-[#003159] text-white",
+    icon: TypeScript,
+  },
+  CSS3: {
+    name: "CSS3",
+    class: "bg-[#003159] text-white",
+    icon: Css3,
+  },
+  MONGO: {
+    name: "MongoDB",
+    class: "bg-[#003159] text-white",
+    icon: MongoDB,
+  },
+  ECHARTS: {
+    name: "Echarts",
+    class: "bg-[#003159] text-white",
+    icon: Echarts,
+  },
+  PYTHON: {
+    name: "Python",
+    class: "bg-[#003159] text-white",
+    icon: Python,
+  },
+};
+const FORTALEZAS = [
+  {
+    title: "FORTALEZAS DEL SERVICIOS",
+    description: [
+      "Lenguaje claro y humano",
+      "Adaptación a cada tipo de organización",
+      "Integración entre normativa y salud mental real",
+      "Enfoque ético, confidencial y profesional",
+      "Mirada profunda del ser humano en el trabajo"
+    ],
+    link: "",
+    github: "",
+    image: "",
+    tags: [],
+  },
+];
+---
+
+<div class="flex flex-col items-center justify-center">
+  {
+    FORTALEZAS.map(({ image, title, description, tags, link, github }) => (
+      <article class="scroll-reveal card-tilt w-full max-w-2xl bg-white/80 dark:bg-black/30 backdrop-blur-md rounded-2xl p-8 md:p-10 shadow-lg group scroll-mt-36 mx-[10px]">
+        <div class="space-y-6">
+          <!-- Título decorado -->
+          <div class="flex items-center gap-4">
+            <div class="hidden md:block w-1 h-12 bg-gradient-to-b from-[#6f4fb3] to-[#7b43b3] rounded-full"></div>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white tracking-tight">
+              {title}
+            </h3>
+          </div>
+
+          <!-- Lista de fortalezas con iconos mejorados -->
+          <div class="pt-4">
+            <ul class="space-y-3">
+              {Array.isArray(description) && description.map((item) => (
+                <li class="flex items-start gap-4 group/item">
+                  <span class="flex-shrink-0 w-6 h-6 rounded-full bg-yellow-400 text-gray-900 font-bold flex items-center justify-center text-sm mt-1">✓</span>
+                  <span class="text-gray-700 dark:text-gray-200 pt-0.5">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
