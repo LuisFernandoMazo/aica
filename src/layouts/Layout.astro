@@ -31,105 +31,77 @@ const { description, title } = Astro.props;
     <slot />
     <Footer />
     <style is:global>
-      :root {
-        color-scheme: light dark;
-      }
+  :root {
+    color-scheme: light dark;
+    /* Definimos variables para facilitar cambios futuros */
+    --color-primary: #009640;
+    --color-secondary: #ed1c24;
+    --color-accent: #fff200;
+  }
 
-      html {
-        font-family: "Onest Variable", system-ui, sans-serif;
-        scroll-behavior: smooth;
-      }
+  html {
+    font-family: "Onest Variable", system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
 
-      body {
-        background: linear-gradient(135deg,#6e618b 0%,#7b43b3 50%,#6f4fb3 100%);
-        color: rgba(17, 17, 17, 0.9);
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        overscroll-behavior: none;
-      }
+  body {
+    /* Gradiente basado en verde oscuro a verde medio, más institucional */
+    background: radial-gradient(circle at top, #f0fdf4 0%, #ffffff 100%);
+    color: rgba(17, 17, 17, 0.9);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overscroll-behavior: none;
+  }
 
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-      }
+  @media (prefers-color-scheme: dark) {
+    body {
+      /* Fondo oscuro con un toque de verde bosque profundo */
+      background: radial-gradient(circle at top, #062c16 0%, #020617 100%);
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
 
-      @media (prefers-color-scheme: dark) {
-        body {
-          background: linear-gradient(135deg,#563592 0%,#3d3255 100%);
-          color: rgba(255, 255, 255, 0.9);
-        }
-      }
+  #header-nav {
+    animation: blur linear both 0.5s;
+    animation-timeline: scroll();
+    animation-range: 0 500px;
+  }
 
-      #header-nav {
-        animation: blur linear both 0.5s;
-        animation-timeline: scroll();
-        animation-range: 0 500px;
-      }
+  @keyframes blur {
+    to {
+      backdrop-filter: blur(20px);
+      border-width: 1px;
+      border-color: rgba(0, 150, 64, 0.2); /* Verde suave */
+      padding: 0.25rem 0.75rem;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 9999px;
+    }
+  }
 
-      @keyframes blur {
-        to {
-          backdrop-filter: blur(20px);
-          border-width: 1px;
-          border-color: rgba(0, 0, 0);
-          padding: 0.25rem 0.75rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          background-color: rgb(229, 229, 229);
-          border-radius: 9999px;
-        }
+  @media (prefers-color-scheme: dark) {
+    @keyframes blur {
+      to {
+        box-shadow: 0px 5px 50px -5px rgba(0, 0, 0, 0.5);
+        background: rgba(6, 44, 22, 0.7); /* Fondo oscuro verdoso */
+        backdrop-filter: blur(20px);
+        border-color: rgba(255, 255, 255, 0.1);
       }
+    }
+  }
+  
+  /* Estilo para botones de acento (opcional para tus componentes) */
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    transition: all 0.3s ease;
+  }
 
-      @media (prefers-color-scheme: dark) {
-        @keyframes blur {
-          from {
-            border: 0px;
-          }
-          to {
-            box-shadow:
-              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-              0px 0px 0 1px rgba(0, 0, 0, 0.3);
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(20px);
-            border-width: 1px;
-            border-color: rgba(0, 0, 0);
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 9999px;
-          }
-        }
-      }
-
-      /* Scroll Reveal Animation */
-      .scroll-reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      }
-
-      .scroll-reveal.reveal {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* 3D Card Tilt Effect */
-      .card-tilt {
-        transform-style: preserve-3d;
-        transition: transform 0.3s ease-out;
-      }
-
-      .card-tilt:hover {
-        transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry));
-      }
-    </style>
+  .btn-primary:hover {
+    background-color: #007a33;
+    transform: scale(1.05);
+  }
+</style>
 
     <script>
       document.addEventListener("astro:page-load", () => {

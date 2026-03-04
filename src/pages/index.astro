@@ -3,21 +3,19 @@ import Layout from "@/layouts/Layout.astro";
 
 import AboutMe from "@/components/AboutMe.astro";
 import Briefcase from "@/components/icons/Briefcase.astro";
-import CodeIcon from "@/components/icons/Code.astro";
-import Experience from "@/components/Experience.astro";
 import ProfileCheck from "@/components/icons/ProfileCheck.astro";
+import Experience from "@/components/Experience.astro";
 import Projects from "@/components/Projects.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 import Hero from "@/components/Hero.astro";
 import TitleSection from "@/components/TitleSection.astro";
-import Skills from "@/components/Skills.astro";
-import SkillsComputer from "@/components/icons/SkillsComputer.astro";
-import Fortalezas from "@/components/Fortalezas.astro";
+import Benefits from "@/components/Benefits.astro";
+import AffiliationSteps from "@/components/AffiliationSteps.astro";
 ---
 
 <Layout
-  title="Porfolio de Catherine Gaviria Camargo"
-  description="Contrata a cathe para servicios de gestión del riesgo psicosocial y salud mental laboral"
+  title="AICA - Sindicato de Educación Caquetá"
+  description="Defensa de los derechos laborales, bienestar y formación de docentes"
 >
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
@@ -25,30 +23,44 @@ import Fortalezas from "@/components/Fortalezas.astro";
     </SectionContainer>
   </main>
   <div class="space-y-24">
-    <SectionContainer id="portafoiolio-servicios">
+    <SectionContainer id="quienes-somos">
       <TitleSection>
-        <div></div>
+      
 
+      </TitleSection>
+      <AboutMe />
+    </SectionContainer>
+
+    <SectionContainer id="servicios">
+      <TitleSection>
         <Briefcase class="size-8" />
-        Portafolio de servicios
+        Líneas de servicio
       </TitleSection>
       <Experience />
     </SectionContainer>
 
-    <SectionContainer id="capacitaciones-riesgo-psicosocial">
-      <TitleSection> 
-        <div></div>
-        <div></div>
-        CAPACITACIONES EN RIESGO PSICOSOCIAL
+    <SectionContainer id="capacitaciones">
+      <TitleSection>
+        <Briefcase class="size-8" />
+        Capacitaciones destacadas
       </TitleSection>
       <Projects />
     </SectionContainer>
 
-    <SectionContainer id="fortalezas-del-servicio">
-      <TitleSection> 
-
+    <SectionContainer id="beneficios">
+      <TitleSection>
+        <ProfileCheck class="size-8" />
+        Beneficios de afiliarse
       </TitleSection>
-      <Fortalezas />
+      <Benefits />
+    </SectionContainer>
+
+    <SectionContainer id="afiliacion">
+      <TitleSection>
+        <ProfileCheck class="size-8" />
+        ¿Cómo afiliarse?
+      </TitleSection>
+      <AffiliationSteps />
     </SectionContainer>
   </div>
 </Layout>

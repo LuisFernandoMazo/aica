@@ -3,62 +3,68 @@ import LinkInline from "./LinkInline.astro"
 
 interface Props {
   title: string
-  company: string
+  company?: string
   description: string[],
-  description2:string
+  description2: string
   subtitulo: string,
   link?: string
-  date: string
+  date?: string
 }
 
-const { title, company, description, link, date, description2,subtitulo } = Astro.props
+const { title, company, description, link, date, description2, subtitulo } = Astro.props
 ---
 
 <div
-  class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]"
+  class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-white/10 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4"
 >
-  <div class="relative pb-12 md:col-span-2">
+  <div class="relative pb-4 md:col-span-2">
     <div class="sticky top-0">
-      <span class="text-yellow-400 -left-[42px] absolute rounded-full text-5xl"
+      <span class="text-[#fff200] -left-[43px] absolute rounded-full text-5xl leading-none select-none"
         >&bull;</span
       >
 
-      <h3 class="text-xl font-bold text-yellow-400">{title}</h3>
-      <h4 class="font-semibold text-xl text-gray-600 dark:text-white">{company}</h4>
-      <time class="p-0 m-0 text-sm text-gray-600/80 dark:text-white/80">{date}</time>
+      <h3 class="text-xl font-bold text-[#fff200]">{title}</h3>
+      {company && <h4 class="font-semibold text-xl text-gray-200">{company}</h4>}
+      {date && <time class="p-0 m-0 text-sm text-[#009640] font-medium">{date}</time>}
     </div>
   </div>
-  <div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3">
-    <p>{description2}</p>
-    <p class="font-bold text-gray-700 dark:text-white">{subtitulo}</p>
-    {description.map((paragraph) => (
-      <ul class="list-disc pl-5">
-        <li>{paragraph}</li>
-      </ul>
-    ))}
+
+  <div class="relative flex flex-col gap-2 pb-4 text-gray-300 md:col-span-3 bg-white/5 p-6 rounded-2xl border border-white/5">
+    <p class="text-base leading-relaxed">{description2}</p>
+    
+    <p class="font-bold text-[#ed1c24] mt-2 uppercase text-xs tracking-widest">{subtitulo}</p>
+    
+    <ul class="grid grid-cols-1 gap-x-4">
+      {description.map((paragraph) => (
+        <li class="flex items-start gap-2 mb-1 text-sm text-gray-400">
+          <svg class="w-4 h-4 text-[#009640] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          {paragraph}
+        </li>
+      ))}
+    </ul>
     
     {
       link && (
-        <LinkInline href={link}>
-          Saber más{" "}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-5 icon icon-tabler icon-tabler-chevron-right"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <>
+        <div class="mt-4">
+          <LinkInline href={link}>
+            Saber más{" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 inline-block"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M9 6l6 6l-6 6" />
-            </>
-          </svg>
-        </LinkInline>
+            </svg>
+          </LinkInline>
+        </div>
       )
     }
   </div>

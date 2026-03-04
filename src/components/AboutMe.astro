@@ -1,81 +1,41 @@
 ---
-const personalImageAlt = "Luis fernando mazo cañas";
 ---
 
-<article
-  class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
->
-  <div
-    class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
-  >
-    <p>
-      ¡Soy Luis Fernando!, <strong
-        >Ingeniero de Sistemas y Telecomunicaciones</strong
-      > , y desde que finalicé mi carrera he tenido la oportunidad de trabajar en
-      diversas áreas del mundo TI, <strong
-        >como soporte técnico y desarrollo de software</strong
-      >. A lo largo de mi trayectoria, <strong>
-        he descubierto mi pasión por crear experiencias web innovadoras que
-        mejoren la interacción de los usuarios con la tecnología.</strong
-      > Cuento con experiencia en el desarrollo de aplicaciones web, donde he podido
-      aplicar mis conocimientos para construir soluciones eficientes y optimizadas.
-      <strong
-        >Disfruto del proceso creativo y técnico que implica desarrollar
-        interfaces intuitivas y funcionales</strong
-      >, siempre buscando la mejora continua en cada proyecto.
+<article class="space-y-12 py-10">
+  <header class="max-w-3xl">
+    <h2 class="text-3xl font-bold text-[#fff200] mb-4 flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      ¿Quiénes somos?
+    </h2>
+    <p class="text-lg leading-relaxed text-white/90 border-l-4 border-[#ed1c24] pl-4">
+      <strong class="text-white">AICA</strong> es una organización sindical que representa a los trabajadores de la
+      educación en el departamento de <span class="text-[#fff200] font-semibold">Caquetá</span>, comprometida con la defensa de los
+      derechos laborales, el fortalecimiento profesional y el bienestar integral docente.
     </p>
-  </div>
+  </header>
 
-  <img
-    width="200"
-    height="200"
-    src="/fotoCompleta.webp"
-    alt={personalImageAlt}
-    class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
-    style="object-position: 50% 13%"
-  />
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 transition-colors">
+      <h3 class="text-xl font-bold text-[#ed1c24] mb-3 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Misión
+      </h3>
+      <p class="text-gray-300 leading-relaxed">
+        Representar y proteger los derechos de los docentes del Caquetá, promoviendo
+        su bienestar laboral, profesional y humano.
+      </p>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 transition-colors">
+      <h3 class="text-xl font-bold text-[#fff200] mb-3 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1"/><path d="M22 12h-2"/><path d="M4 12H2"/><path d="M12 2V4"/><path d="M12 22v-2"/></svg>
+        Visión
+      </h3>
+      <p class="text-gray-300 leading-relaxed">
+        Ser la organización líder en bienestar y defensa del magisterio en el
+        departamento del Caquetá, proyectando un sindicato moderno y eficiente.
+      </p>
+    </div>
+  </div>
 </article>
 
-<!-- FRASES PROHIBIDAS EN VUESTRO PORTFOLIO
-
-<p>
-  Mi sueño es encontrar mi primer empleo en el mundo de la programación. Una empresa donde pueda seguir aprendiendo. ❌
-</p>
-
-<p>
-  ❌ Apasionado de la programación desde chekitito. Me encantan los ordenadores y crear páginas web buenas y rápidas con la última tecnología.
-</p>
-
-<p>
-  Trabajo bien en equipo. Siempre estoy aprendiendo cosas nuevas.
-</p>
-
--------------------------------------
-
---------------------------------------
-
-<p>
-  ¡Soy Leo! Estudié Derecho Empresarial y, tras años ejerciendo, me pasé al mundo de la Programación. Desde entonces disfruto creando experiencias web para los usuarios.
-</p>
-
-<p>
-  Entre mis éxitos destaco que durante el Grado Superior, ayudé a mis compañeros a aprender sobre TDD. Me encanta el testing, creo en su importancia, y me gusta compartir mi conocimiento sobre ello.
-</p>
-
-<p>
-  Cuento con experiencia desarrollando aplicaciones móviles, y he creado una iniciativa llamada X para mezclar mis dos pasiones: la programación y el derecho. Ayudando a la sociedad a acceso a una defensa justa.
-</p>
-
----------------------------------------
-
-<p>Me llamo Sara, tengo 25 años y soy de Santiago, Chile 🇨🇱. Terminé mis estudios como Desarrolladora Web. Me encanta enfocarme en la parte del rendimiento, para ofrecer la mejora experiencia al usuario.</p>
-
-<p>
-  Colaboro en la organización del MeetUp local BeerJS donde reunimos a desarrolladores de Santiago para compartir conocimiento y experiencias. El año 2023 hicimos un total de 25 charlas con más de 2000 asistentes.
-</p>
-
-<p>
-  Además de participar activamente en la comunidad, he participado en la Hackathon de Midudev quedando en 3er puesto con mi proyecto _Chatty_, donde usando IA podías interactuar con un PDF. ¡Échale un vistazo!
-</p>
-
--->

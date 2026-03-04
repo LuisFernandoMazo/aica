@@ -1,202 +1,58 @@
 ---
-const personalImageAlt = "Luis fernando mazo cañas";
-import Badge from "@/components/Badge.astro";
-import LinkedInIcon from "@/components/icons/LinkedIn.astro";
-import MailIcon from "@/components/icons/Mail.astro";
-import SocialPill from "@/components/SocialPill.astro";
-import Download from "./icons/Download.astro";
+/* Hero section for AICA organization. */
 ---
 
-<div class="max-w-2xl">
-  <div class="scroll-reveal flex flex-col md:flex-row gap-4 mb-4 md:items-center">
-    <div class="flex md:items-center justify-center">
-      <div class="relative">
-        <span class="absolute -inset-1 rounded-full hero-glow pointer-events-none"></span>
-        <img
-          class="rounded-full shadow-lg size-40 flex-shrink-0 mt-4 hero-float"
-          src="/cathe3.jpeg"
-          alt={personalImageAlt}
-        />
-      </div>
-    </div>
-
-    <a
-      href=""
-      target="_blank"
-      rel="noopener"
-      class="flex md:justify-center md:hover:scale-105"
-    >
-      <Badge>Gestión del Riesgo Psicosocial y Salud Mental Laboral</Badge>
-    </a>
+<div class="relative max-w-4xl text-center mx-auto py-16 px-4">
+  <div class="relative inline-block mb-8">
+    <div class="absolute inset-0 bg-white/10 blur-2xl rounded-full"></div>
+    <img 
+      src="https://www.aica.org.co/wp-content/uploads/2023/08/Logo-AICA2.png" 
+      alt="Logo AICA" 
+      class="relative mx-auto h-28 w-auto drop-shadow-lg" 
+    />
   </div>
-  <h1
-    id="animated-text"
-    class="scroll-reveal text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
-  >
+
+  <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-white">
+    AICA – Sindicato de Educación <span class="text-[#fff200]">Caquetá</span>
   </h1>
 
-  <p
-    class="scroll-reveal mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
-  >
-    Con enfoque especializado en la identificación, evaluación, intervención y
-    seguimiento del <strong>Riesgo Psicosocial</strong> en el contexto laboral, conforme
-    a la Resolución 2646 de 2008 y lineamientos del SG-SST. Cuento con experiencia
-    en acompañamiento organizacional, trabajo en campo y capacitación individual
-    y grupal, orientada a la comprensión profunda de los <strong>
-      intralaborales, extralaborales e individuales</strong
-    > que impactan la salud mental, el clima laboral y el desempeño de los trabajadores.
-    Mi ejercicio profesional se caracteriza por una lectura sensible de las dinámicas
-    humanas dentro de las organizaciones, integrando el componente técnico con una
-    mirada empática y ética. Trabajo desde un <strong
-      >enfoque preventivo, educativo y humano</strong
-    >, facilitando espacios de sensibilización, orientación psicosocial y
-    fortalecimiento de habilidades de afrontamiento, autocuidado y
-    corresponsabilidad en la gestión del riesgo. Me especializo en traducir la
-    normativa en acciones prácticas, claras y aplicables, favoreciendo procesos
-    sostenibles que priorizan el bienestar emocional, la dignidad del trabajador
-    y la humanización del trabajo
+  <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
+    Defendemos los <span class="text-white font-semibold">derechos laborales</span>, 
+    impulsamos el fortalecimiento profesional y garantizamos el 
+    <span class="text-white font-semibold">bienestar integral</span> del docente caqueteño.
   </p>
-  <nav class="scroll-reveal flex flex-wrap gap-4 mt-8">
-    {
-      /* <SocialPill href="./cv.pdf">
-      <Download class="size-4" />
-      Descargar CV
-    </SocialPill>*/
-    }
 
-    <SocialPill
-      href="https://www.instagram.com/ps.catherinegc?igsh=MXA5MHB3Z3loOHZxbw=="
-    >
-      Instagram
-    </SocialPill>
-    <SocialPill href="mailto:catherinegaviriacamargo@gmail.com">
-      <MailIcon class="size-4" />
-      Contáctame
-    </SocialPill>
-    <SocialPill href="https://wa.me/573233941668"> WhatsApp </SocialPill>
+  <nav class="flex flex-wrap justify-center gap-4 mt-8">
+    <a href="#afiliacion" class="btn-primary">
+      Afíliate ahora
+    </a>
+    <a href="mailto:info@aica-caqueta.org" class="btn-outline">
+      Contáctanos
+    </a>
+    <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      WhatsApp
+    </a>
   </nav>
 </div>
 
-<script>
-  const texts = [
-    "Soy Catherine",
-    "Psicóloga Especialista en Gerencia de Riesgos Laborales Seguridad y Salud en el Trabajo ",
-  ];
-  let i = 0;
-  let element = document.getElementById("animated-text");
-
-  function typeText(text: string) {
-    let currentText = "";
-    let currentIndex = 0;
-    let typingSpeed = 150;
-    let delayBetweenTexts = 2000;
-    let fadeOutSpeed = 500;
-
-    let interval = setInterval(function () {
-      currentText += text[currentIndex];
-      if (element) {
-        element.innerHTML = `<span class="typing-animation">${currentText}</span>`;
-      }
-      currentIndex++;
-
-      if (currentIndex === text.length) {
-        clearInterval(interval);
-        setTimeout(() => {
-          if (element) {
-            element.innerHTML = `<span class="typing-animation" style="animation: ${fadeOutSpeed / 1000}s fade-out forwards">${currentText}</span>`;
-          }
-
-          setTimeout(() => {
-            i = (i + 1) % texts.length;
-            typeText(texts[i]);
-          }, fadeOutSpeed);
-        }, delayBetweenTexts);
-      }
-    }, typingSpeed);
-  }
-
-  typeText(texts[i]);
-</script>
-
 <style>
-  .typing-animation {
-    display: inline-block;
-    font-family: "Courier New", Courier, monospace;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 0.15em solid #f3f2f2; /* Simula el cursor */
-    animation:
-      typing 3s steps(30) 1s forwards,
-      blink-caret 0.75s step-end infinite;
+  /* Botón Principal: Rojo vibrante con hover sólido */
+  .btn-primary {
+    @apply px-8 py-3 rounded-full bg-[#ed1c24] text-white font-bold 
+    shadow-lg shadow-red-900/20 hover:bg-[#c81016] hover:scale-105 
+    transition-all duration-300 ease-in-out;
   }
 
-  /* Animación de parpadeo del cursor */
-  @keyframes blink-caret {
-    50% {
-      border-color: transparent;
-    }
+  /* Botón Outline: Blanco/Transparente con borde */
+  .btn-outline {
+    @apply px-8 py-3 rounded-full border-2 border-white/30 text-white font-semibold 
+    hover:bg-white hover:text-[#004d21] transition-all duration-300;
   }
 
-  /* Animación de desvanecimiento al aparecer el texto */
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  /* Animación de desvanecimiento al desaparecer el texto */
-  @keyframes fade-out {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-
-  /* Hero float + glow */
-  .hero-float {
-    animation: float 6s ease-in-out infinite;
-    will-change: transform;
-  }
-
-  @keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-  }
-
-  .hero-glow {
-    background: radial-gradient(circle at center, rgba(111,79,179,0.35), transparent 40%);
-    filter: blur(18px);
-    opacity: 0.6;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform-origin: center;
-    animation: pulse 3.5s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 0.85; transform: scale(1.06); }
-    100% { opacity: 0.5; transform: scale(1); }
-  }
-
-  /* Dark mode tweak */
-  :root.dark .hero-glow,
-  .dark .hero-glow {
-    background: radial-gradient(circle at center, rgba(127,90,198,0.28), transparent 40%);
-  }
-
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .hero-float,
-    .hero-glow,
-    .scroll-reveal {
-      animation: none !important;
-      transition: none !important;
-    }
+  /* Botón WhatsApp: Verde específico o sutil */
+  .btn-whatsapp {
+    @apply px-8 py-3 rounded-full border-2 border-[#fff200]/50 text-[#fff200] font-semibold 
+    hover:bg-[#fff200] hover:text-black transition-all duration-300;
   }
 </style>

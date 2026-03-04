@@ -1,249 +1,97 @@
 ---
-import GitHub from "./icons/GitHub.astro";
-import NextJS from "./icons/NextJS.astro";
-import Tailwind from "./icons/Tailwind.astro";
-import React from "./icons/React.astro";
-import Redux from "./icons/Redux.astro";
-import TypeScript from "./icons/TypeScript.astro";
-import Css3 from "./icons/Css3.astro";
-import Link from "./icons/Link.astro";
-import MongoDB from "./icons/Mongo.astro";
-import Echarts from "./icons/Echarts.astro";
-import Python from "./icons/Python.astro";
-import LinkButton from "./LinkButton.astro";
-
-const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: NextJS,
-  },
-  TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
-    icon: Tailwind,
-  },
-  REACT: {
-    name: "React.js",
-    class: "bg-[#003159] text-white",
-    icon: React,
-  },
-  REDUX: {
-    name: "Redux",
-    class: "bg-[#3c024f] text-white",
-    icon: Redux,
-  },
-  TYPESCRIPT: {
-    name: "TypeScript",
-    class: "bg-[#003159] text-white",
-    icon: TypeScript,
-  },
-  CSS3: {
-    name: "CSS3",
-    class: "bg-[#003159] text-white",
-    icon: Css3,
-  },
-  MONGO: {
-    name: "MongoDB",
-    class: "bg-[#003159] text-white",
-    icon: MongoDB,
-  },
-  ECHARTS: {
-    name: "Echarts",
-    class: "bg-[#003159] text-white",
-    icon: Echarts,
-  },
-  PYTHON: {
-    name: "Python",
-    class: "bg-[#003159] text-white",
-    icon: Python,
-  },
-};
 const PROJECTS = [
   {
-    title: "Estrés laboral y Síndrome de Burnout ",
+    title: "Capacitaciones pedagógicas",
     description: [
-      "Estrés funcional vs estrés crónico ",
-      "Señales de alarma ",
-      "Prevención del agotamiento emocional",
-      
+      "Didáctica y metodologías activas",
+      "Planeación de clases efectivas",
+      "Recursos educativos innovadores",
     ],
     link: "",
     github: "",
     image: "",
-    tags: [],
+    tags: ["Pedagogía", "Innovación"],
   },
   {
-    title: "Carga mental y carga emocional",
+    title: "Seminarios y diplomados",
     description: [
-      "Sobrecarga cognitiva",
-      "Exigencias emocionales del rol",
-      "Fatiga mental y decisional",
-       "Estrategias de regulación emocional"
-      
+      "Formación continua en temas de educación",
+      "Charlas magistrales con expertos",
+      "Diplomados certificados en línea",
     ],
     link: "",
     github: "",
     image: "",
-    tags: [],
-  },
-    {
-    title: "Liderazgo",
-    description: [
-      "Estilos de liderazgo y salud mental",
-      "Liderazgo consciente y humanizado",
-      "El líder como regulador emocional del equipo",
-      
-    ],
-    link: "",
-    github: "",
-    image: "",
-    tags: [],
-  },
-     {
-    title: "Comunicación Asertiva y Manejo de Conflictos",
-    description: [
-      "Conflicto sano vs conflicto patológico",
-      "Comunicación empática",
-      "Manejo emocional en situaciones difíciles",
-      
-    ],
-    link: "",
-    github: "",
-    image: "",
-    tags: [],
-  },
-     {
-    title: "Comité de Convivencia Laboral (COCOLA)",
-    description: [
-      "Funciones y responsabilidades del comité",
-      "Prevención del acoso laboral",
-      "Ruta de atención y manejo de quejas",
-      "Escucha activa, confidencialidad y contención emocional"
-      
-    ],
-    link: "",
-    github: "",
-    image: "",
-    tags: [],
-  },
-    {
-    title: "Equidad de Género en el Entorno Laboral",
-    description: [
-      "Enfoque de género y salud mental",
-      "Violencias visibles e invisibles",
-      "Impacto psicológico de la inequidad",
-      "Construcción de entornos laborales seguros"
-      
-    ],
-    link: "",
-    github: "",
-    image: "",
-    tags: [],
-  },
-      {
-    title: "Prevención del Consumo de SPA",
-    description: [
-      "Consumo, abuso y dependencia",
-      "Factores psicosociales asociados",
-      "Detección temprana",
-      "Abordaje preventivo y no punitivo"
-      
-    ],
-    link: "",
-    github: "",
-    image: "",
-    tags: [],
-  },
-     {
-    title: "Primeros Auxilios Psicológicos (PAP)",
-    description: [
-      "Atención inmediata en crisis",
-      "Contención emocional",
-      "Escucha activa y validación",
-      "Criterios de remisión"
-      
-    ],
-    link: "",
-    github: "",
-    image: "",
-    tags: [],
+    tags: ["Certificado", "Expertos"],
   },
   {
-    title: "Psicología de la Emergencia",
+    title: "Actualización normativa",
     description: [
-      "Reacciones normales ante eventos críticos",
-      "Atención a trabajadores y víctimas",
-      "Prevención de secuelas psicológicas",
-      "Prevención del trauma psicólogico"     
+      "Resoluciones y leyes del sector educativo",
+      "Interpretación de cambios legales",
+      "Guías para el cumplimiento institucional",
     ],
     link: "",
     github: "",
     image: "",
-    tags: [],
+    tags: ["Legal", "Normatividad"],
   },
   {
-    title: "Autocuidado y Salud Mental en el Trabajo",
+    title: "Encuentros académicos",
     description: [
-      "Autocuidado individual y organizacional",
-      "Cuerpo, mente y emoción",
+      "Jornadas de intercambio entre docentes",
+      "Foros y mesas de trabajo",
+      "Congresos regionales y nacionales",
     ],
     link: "",
     github: "",
     image: "",
-    tags: [],
-  },
-   {
-    title: "Sentido del Trabajo y Motivación",
-    description: [
-
-    ],
-    link: "",
-    github: "",
-    image: "",
-    tags: [],
-  },
-  {
-    title: "Inteligencia Emocional Aplicada al Trabajo",
-    description: [
-
-    ],
-    link: "",
-    github: "",
-    image: "",
-    tags: [],
+    tags: ["Gremial", "Networking"],
   },
 ];
 ---
+
 <section class="relative max-w-5xl mx-auto px-4 md:px-8 py-12">
 
-  <!-- Línea vertical -->
-  <span class="absolute left-6 top-0 bottom-0 w-px bg-white/30"></span>
+  <span class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#fff200] via-[#009640] to-[#ed1c24] opacity-30"></span>
 
-  <div class="flex flex-col gap-y-12">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-    {PROJECTS.map(({ title, description }) => (
-      <article class="scroll-reveal relative pl-14">
+    {PROJECTS.map(({ title, description, tags }) => (
+      <article class="scroll-reveal relative group">
+        
+        <div class="card-tilt bg-white/5 border border-white/10 rounded-2xl p-8 shadow-2xl backdrop-blur-sm 
+                    hover:border-[#009640]/50 transition-all duration-300 h-full flex flex-col">
+          
+          <div class="flex gap-2 mb-4">
+            {tags.map(tag => (
+              <span class="text-[10px] uppercase tracking-widest font-bold px-2 py-1 rounded bg-[#ed1c24]/10 text-[#ed1c24] border border-[#ed1c24]/20">
+                {tag}
+              </span>
+            ))}
+          </div>
 
-        <!-- Bola alineada al título -->
-        <span
-          class="absolute left-2 md:left-[-8px] top-1/2 -translate-x-1/2 -translate-y-1/2
-                 size-[10px] rounded-full bg-yellow-400"
-        ></span>
-
-        <!-- Card -->
-        <div class="card-tilt bg-[#35245A] rounded-xl p-6 shadow-lg">
-
-          <!-- Título -->
-          <h3 class="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
+          <h3 class="text-2xl font-bold text-[#fff200] mb-4 leading-tight group-hover:text-white transition-colors">
             {title}
           </h3>
 
-          <ul class="list-disc pl-5 space-y-1 text-white/80">
+          <ul class="space-y-3 text-gray-300 flex-grow">
             {description.map((item) => (
-              <li>{item}</li>
+              <li class="flex items-start gap-3 text-sm">
+                <svg class="w-5 h-5 text-[#009640] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
             ))}
           </ul>
+
+          <div class="mt-6 pt-6 border-t border-white/5">
+             <button class="text-xs font-semibold text-white/60 group-hover:text-[#fff200] flex items-center gap-2 transition-colors">
+               Ver detalles 
+               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+             </button>
+          </div>
 
         </div>
       </article>

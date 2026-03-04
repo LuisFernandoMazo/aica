@@ -2,67 +2,28 @@
 import ThemeToggle from "./ThemeToggle.astro";
 
 const navItems = [
-  {
-    title: "Portafolio de servicios ",
-    label: "portafoiolio-servicios",
-    url: "/#portafoiolio-servicios",
-  },
-  {
-    title: "Capacitaciones en riesgo psicosocial",
-    label: "capacitaciones-riesgo-psicosocial",
-    url: "/#capacitaciones-riesgo-psicosocial",
-  },
-  {
-    title: "Fortalezas del servicio",
-    label: "fortalezas-del-servicio",
-    url: "/#fortalezas-del-servicio",
-  },
-
-  {
-    title: "Contacto",
-    label: "contacto",
-    url: "mailto:catherinegaviriacamargo@gmail.com",
-  },
+  { title: "Quiénes somos", label: "quienes-somos", url: "/#quienes-somos" },
+  { title: "Servicios", label: "servicios", url: "/#servicios" },
+  { title: "Capacitaciones", label: "capacitaciones", url: "/#capacitaciones" },
+  { title: "Beneficios", label: "beneficios", url: "/#beneficios" },
+  { title: "Afiliarse", label: "afiliacion", url: "/#afiliacion" },
+  { title: "Contacto", label: "contacto", url: "mailto:info@aica-caqueta.org" },
 ];
 ---
 
-<header class="fixed top-0 z-50 w-full">
+<header class="fixed top-0 z-50 w-full px-2 py-4">
   <nav
-    class="relative flex items-center justify-between px-3 py-2 sm:px-4 sm:py-3 bg-white/50 dark:bg-[#F0E8FC]/80 backdrop-blur-md shadow-sm ring-1 ring-white/10 sm:justify-center gap-2 sm:gap-4"
+    class="relative flex items-center justify-between max-w-6xl mx-auto px-4 py-2 bg-white/10 dark:bg-black/20 backdrop-blur-xl rounded-full shadow-2xl ring-1 ring-white/20"
   >
-    <!-- Logo (visible en desktop y móvil) -->
-    <a href="/" class="flex items-center flex-shrink-0">
-      <img src="/logo.png" alt="Logo" class="h-8 sm:h-10 md:h-14 w-auto" />
+    <a href="/" class="flex items-center flex-shrink-0 transition-transform hover:scale-105">
+      <img src="https://www.aica.org.co/wp-content/uploads/2023/08/Logo-AICA2.png" alt="Logo AICA" class="h-10 md:h-12 w-auto" />
     </a>
 
-    <!-- Menú móvil -->
-    <div class="md:hidden ml-auto">
-      <button
-        id="mobile-menu-button"
-        class="p-1.5 sm:p-2 text-[#4e2155] dark:text-[#4e2155] hover:text-[#4e2155]/90 flex-shrink-0"
-        aria-label="Abrir menú"
-      >
-        <svg
-          class="w-5 h-5 sm:w-6 sm:h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Menú desktop (oculto en móvil) -->
-    <div class="hidden md:flex items-center space-x-4 text-sm">
+    <div class="hidden md:flex items-center space-x-1 text-sm font-medium">
       {
         navItems.map((link) => (
           <a
-            class="px-3 py-2 transition-colors hover:text-[#6f4fb3] dark:hover:text-[#4e2155] relative"
+            class="px-3 py-2 text-white/80 transition-all hover:text-[#fff200] rounded-full hover:bg-white/5"
             aria-label={link.label}
             href={link.url}
           >
@@ -70,21 +31,31 @@ const navItems = [
           </a>
         ))
       }
-      <div>
-        
-      </div>
     </div>
 
-    <!-- Menú móvil (overlay) -->
+    <div class="flex items-center gap-2">
+      <ThemeToggle />
+      
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 text-white hover:bg-white/10 rounded-full transition-colors"
+        aria-label="Abrir menú"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
     <div
       id="mobile-menu"
-      class="absolute top-full left-0 right-0 bg-[#6f4fb3]/80 dark:bg-[#6f4fb3]/70 backdrop-blur-md shadow-lg md:hidden hidden transition-all duration-300 origin-top"
+      class="absolute top-full left-0 right-0 mt-2 bg-black/90 backdrop-blur-2xl shadow-2xl md:hidden hidden rounded-3xl overflow-hidden border border-white/10"
     >
-      <div class="flex flex-col items-center py-4 space-y-3">
+      <div class="flex flex-col py-4">
         {
           navItems.map((link) => (
             <a
-              class="w-full text-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              class="w-full py-3 px-6 text-white/80 hover:text-[#fff200] hover:bg-white/5 transition-colors text-lg"
               aria-label={link.label}
               href={link.url}
             >
@@ -94,9 +65,6 @@ const navItems = [
         }
       </div>
     </div>
-    <div class="flex-shrink-0">
-      <ThemeToggle />
-    </div>
   </nav>
 </header>
 
@@ -105,89 +73,42 @@ const navItems = [
     const mobileMenuButton = document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
 
-    // Toggle mobile menu
     mobileMenuButton?.addEventListener("click", () => {
       mobileMenu?.classList.toggle("hidden");
-      mobileMenu?.classList.toggle("scale-y-95");
-      mobileMenu?.classList.toggle("opacity-0");
     });
 
-    // Cerrar menú al hacer click fuera
+    // Cerrar menú al hacer click fuera o en un link
     document.addEventListener("click", (e) => {
-      const target = e.target as Node;
-      if (
-        !mobileMenu?.contains(target) &&
-        !mobileMenuButton?.contains(target)
-      ) {
-        mobileMenu?.classList.add("hidden", "scale-y-95", "opacity-0");
+      if (!mobileMenu?.contains(e.target as Node) && !mobileMenuButton?.contains(e.target as Node)) {
+        mobileMenu?.classList.add("hidden");
       }
     });
 
-    // Cerrar menú al seleccionar item
-    mobileMenu?.querySelectorAll("a").forEach((item) => {
-      item.addEventListener("click", () => {
-        mobileMenu?.classList.add("hidden", "scale-y-95", "opacity-0");
-      });
-    });
-
-    // Observador de intersección (actualizado para móvil)
-    const config = {
-      rootMargin:
-        window.innerWidth < 768 ? "-50% 0px -50% 0px" : "0px 0px 0px 0px",
-      threshold: 0.3,
-    };
-
+    // Highlight del menú según sección activa
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           document.querySelectorAll("nav a").forEach((link) => {
-            link.classList.toggle(
-              "text-[#4e2155]",
-              link.getAttribute("aria-label") === entry.target.id
-            );
+            const isActive = link.getAttribute("aria-label") === entry.target.id;
+            link.classList.toggle("text-[#fff200]", isActive);
+            link.classList.toggle("font-bold", isActive);
           });
         }
       });
-    }, config);
+    }, { threshold: 0.5 });
 
-    document
-      .querySelectorAll("section")
-      .forEach((section) => observer.observe(section));
+    document.querySelectorAll("section").forEach((s) => observer.observe(s));
   });
 </script>
 
 <style>
-  /* Animaciones mejoradas para móvil */
-  #mobile-menu {
-    transform: scaleY(0.95);
-    opacity: 0;
-    transition:
-      transform 0.3s ease,
-      opacity 0.2s ease;
-  }
-
+  /* Animación suave para el menú móvil */
   #mobile-menu:not(.hidden) {
-    transform: scaleY(1);
-    opacity: 1;
+    animation: slideIn 0.3s ease forwards;
   }
 
-  /* Mejora de legibilidad en móvil */
-  @media (max-width: 767px) {
-    nav a {
-      font-size: 0.875rem;
-      padding: 0.5rem 0.75rem;
-    }
-
-    #mobile-menu {
-      padding: 1rem 0;
-    }
-
-    #mobile-menu a {
-      padding: 0.5rem 1rem !important;
-    }
-
-    .dark #mobile-menu {
-      background-color: rgba(17, 24, 39, 0.2);
-    }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 </style>
